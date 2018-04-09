@@ -1,25 +1,23 @@
-# An Introduction to Elm
+# Elm 指南
 
-**Elm is a functional language that compiles to JavaScript.** It competes with projects like React as a tool for creating websites and web apps. Elm has a very strong emphasis on simplicity, ease-of-use, and quality tooling.
+## 1. 介绍
 
-This guide will:
+**Elm 是一门编译成 `JavaScript` 的函数式编程语言。** Elm 被用来创建网页应用，与 `React` 类似。 Elm 强调简单，易用，工具链强大。
 
-  - Teach you the fundamentals of programming in Elm.
-  - Show you how to make interactive apps with *The Elm Architecture*.
-  - Emphasize the principles and patterns that generalize to programming in any language.
+本指南包含如下内容：
+* Elm 编程语言的基础
+* 如何用 `Elm 架构` 建构交互式的应用
+* 强调 Elm 这种与语言无关强大的架构模式
 
-By the end I hope you will not only be able to create great web apps in Elm, but also understand the core ideas and patterns that make Elm nice to use.
+希望在指南结束后，你不仅能够用 Elm 创建网页应用，也能领悟到 Elm 的核心思想和设计模式。
 
-If you are on the fence, I can safely guarantee that if you give Elm a shot and actually make a project in it, you will end up writing better JavaScript and React code. The ideas transfer pretty easily!
+如果你还在犹豫不决，我可以保证，只要你尝试一下 Elm，就可以写出更好的 `JavaScript` 以及 `React` 代码。
 
+## 迅速上手
+Elm 非常棒！
+这里有一个[计数器](http://elm-lang.org/examples/buttons)的例子。该案例的主要功能是做计数器做加减。
 
-## A Quick Sample
-
-Of course *I* think Elm is good, so look for yourself.
-
-Here is [a simple counter](http://elm-lang.org/examples/buttons). If you look at the code, it just lets you increment and decrement the counter:
-
-```elm
+```
 import Html exposing (Html, button, div, text)
 import Html.Events exposing (onClick)
 
@@ -44,18 +42,16 @@ view model =
     ]
 ```
 
-Notice that the `update` and `view` are entirely decoupled. You describe your HTML in a declarative way and Elm takes care of messing with the DOM.
+*注*：`update` 和 `view` 完全解耦。你可以用声明的方式描述 HTML 的内容，Elm 负责处理 DOM。
 
+## 为什么是一门函数式的语言？
+忘记你所知道的关于函数式编程的一切吧。时尚的词汇，诡异的概念，糟糕的工具链，令人作吐。（*译者注*：这里并不一定是贬义词，无意冒犯）
+Elm 不一样：
+* 无运行时错误。没有 `null`，`undefined` 
+* 友好的错误提示，帮你更快的写 `feature`
+* 随着代码量的增加，架构依然优秀
+* 强制对 Elm package 进行语义化版本管理
 
-## Why a *functional* language?
+没有任何的 JS 库的组合可以给予你这些特性，然而这些在 Elm 中都是自带的。Elm 之所以如此强大是因为 Elm 构建在 40+ 年的带类型函数式编程语言的工作基础上。因此，Elm 是一门函数式的编程语言，你花费几个小时阅读这份文档对你的实践非常有帮助。
 
-Forget what you have heard about functional programming. Fancy words, weird ideas, bad tooling. Barf. Elm is about:
-
-  - No runtime errors in practice. No `null`. No `undefined` is not a function.
-  - Friendly error messages that help you add features more quickly.
-  - Well-architected code that *stays* well-architected as your app grows.
-  - Automatically enforced semantic versioning for all Elm packages.
-
-No combination of JS libraries can ever give you this, yet it is all free and easy in Elm. Now these nice things are *only* possible because Elm builds upon 40+ years of work on typed functional languages. So Elm is a functional language because the practical benefits are worth the couple hours you'll spend reading this guide.
-
-I have put a huge emphasis on making Elm easy to learn and use, so all I ask is that you give Elm a shot and see what you think. I hope you will be pleasantly surprised!
+我已经非常尽力的让 Elm 更加容易学习和使用，请给 Elm 一次机会吧，然后再回头想想这番话。我希望你也能被 Elm 惊艳到。
