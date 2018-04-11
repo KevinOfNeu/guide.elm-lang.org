@@ -19,7 +19,7 @@
 - [`elm-make`](#elm-make) &mdash; 编译某个目录下的 Elm 代码
 - [`elm-package`](#elm-package) &mdash; 下载 package
 
-等编辑器设置好后，我们在详细描述他们是怎么协同共工作的。
+在配置好编辑器后，我们再详细描述他们是怎么协同共工作的。
 
 
 > **Troubleshooting:** 提高学习速度最快的方式是参与到 Elm 社区和他们交流。我们愿意沟通和提供帮助！如果你遇到什么问题，欢迎来 [Elm Slack](http://elmlang.herokuapp.com/) 提问。事实上，这样节省你自己的时间。不要犹豫！
@@ -48,11 +48,11 @@
 
 ## 命令行工具
 
-安装完 Elm 后你或许好奇 `elm-repl`, `elm-reactor`, `elm-make`, 和 `elm-package` 命令具体都是做什么的？
+安装完 Elm 后你或许好奇 `elm-repl`, `elm-reactor`, `elm-make`, 和 `elm-package` 命令具体都是做什么的?
 
 ### elm-repl
 
-[`elm-repl`](https://github.com/elm-lang/elm-repl) 让你做表达式求值（译者注： Read, Evaluate, Print, Loop）。
+[`elm-repl`](https://github.com/elm-lang/elm-repl) 让你做表达式求值(译者注： Read, Evaluate, Print, Loop)。
 
 ```bash
 $ elm-repl
@@ -99,7 +99,7 @@ elm-reactor
 
 ## elm-make
 
-[`elm-make`](https://github.com/elm-lang/elm-make) 用来编译 Elm  工程成 HTML 或者 JavaScript。这是最常用的编译 Elm 代码的方式，如果你的代码无需用 `elm-reactor` 调试，可以直接运行 `elm-make` 来构建。
+[`elm-make`](https://github.com/elm-lang/elm-make) 用来编译 Elm  工程成 HTML 或者 JavaScript。这是最常用的编译 Elm 代码的方式，如果你的代码无需用`elm-reactor`调试，可以直接运行 `elm-make` 来构建。
 
 
 假设你要编译 `Main.elm` 成 HTML 文件 `main.html`，你需要执行：
