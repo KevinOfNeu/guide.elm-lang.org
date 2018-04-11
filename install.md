@@ -1,32 +1,33 @@
-> **Note:** If you do not want to install yet, you can follow along in this guide with the [online editor](http://elm-lang.org/try) and the [online REPL](http://elmrepl.cuberoot.in/).
+> **注:** 如果你不想安装，可以使用[在线编辑器](http://elm-lang.org/try) 以及 [在线 REPL](http://elmrepl.cuberoot.in/)。
 
 
-# Install
+# 安装
 
-  * Mac &mdash; [installer][mac]
-  * Windows &mdash; [installer][win]
-  * Anywhere &mdash; [npm installer][npm] or [build from source][build]
+  * Mac &mdash; [安装][mac]
+  * Windows &mdash; [安装][win]
+  * Anywhere &mdash; [npm 安装][npm] or [源码安装][build]
 
 [mac]: https://44a95588fe4cc47efd96-ec3c2a753a12d2be9f23ba16873acc23.ssl.cf2.rackcdn.com/Elm-Platform-0.18.pkg
 [win]: https://44a95588fe4cc47efd96-ec3c2a753a12d2be9f23ba16873acc23.ssl.cf2.rackcdn.com/Elm-Platform-0.18.exe
 [npm]: https://www.npmjs.com/package/elm
 [build]: https://github.com/elm-lang/elm-platform
 
-After installing through any of those routes, you will have the following command line tools:
+安装完毕后，下面的命令行工具可以使用:
 
-- [`elm-repl`](#elm-repl) &mdash; play with Elm expressions
-- [`elm-reactor`](#elm-reactor) &mdash; get a project going quickly
-- [`elm-make`](#elm-make) &mdash; compile Elm code directly
-- [`elm-package`](#elm-package) &mdash; download packages
+- [`elm-repl`](#elm-repl) &mdash; Elm REPL
+- [`elm-reactor`](#elm-reactor) &mdash; 提高项目开发速度（原文:get a project going quickly）
+- [`elm-make`](#elm-make) &mdash; 编译某个目录下的 Elm 代码
+- [`elm-package`](#elm-package) &mdash; 下载 package
 
-We will go over how they all work in more detail right after we get your editor set up!
-
-> **Troubleshooting:** The fastest way to learn *anything* is to talk with other people in the Elm community. We are friendly and happy to help! So if you get stuck during installation or encounter something weird, visit [the Elm Slack](http://elmlang.herokuapp.com/) and ask about it. In fact, if you run into something confusing at any point while learning or using Elm, come ask us about it. You can save yourself hours. Just do it!
+等编辑器设置好后，我们在详细描述他们是怎么协同共工作的。
 
 
-## Configure Your Editor
+> **Troubleshooting:** 提高学习速度最快的方式是参与到 Elm 社区和他们交流。我们愿意沟通和提供帮助！如果你遇到什么问题，欢迎来 [Elm Slack](http://elmlang.herokuapp.com/) 提问。事实上，这样节省你自己的时间。不要犹豫！
 
-Using Elm is way nicer when you have a code editor to help you out. There are Elm plugins for at least the following editors:
+
+## 配置编辑器
+
+好的编辑器可以在你学习 Elm 过程中助你一臂之力。下面的编辑器中都有 Elm  的插件:
 
   * [Atom](https://atom.io/packages/language-elm)
   * [Brackets](https://github.com/lepinay/elm-brackets)
@@ -37,21 +38,21 @@ Using Elm is way nicer when you have a code editor to help you out. There are El
   * [Vim](https://github.com/ElmCast/elm-vim)
   * [VS Code](https://github.com/sbrink/vscode-elm)
 
-If you do not have an editor at all, [Sublime Text](https://www.sublimetext.com/) is a great one to get started with!
 
-You may also want to try out [elm-format][] which makes your code pretty!
+如果上面的编辑器你都不喜欢，那么 [Sublime Text](https://www.sublimetext.com/)  是个不错的选择！
+
+你可以试试 [elm-format][]，帮助你格式化代码。
 
 [elm-format]: https://github.com/avh4/elm-format
 
 
-## The Command Line Tools
+## 命令行工具
 
-So we installed Elm, and it gave us `elm-repl`, `elm-reactor`, `elm-make`, and `elm-package`. But what do they all do exactly?
-
+安装完 Elm 后你或许好奇 `elm-repl`, `elm-reactor`, `elm-make`, 和 `elm-package` 命令具体都是做什么的？
 
 ### elm-repl
 
-[`elm-repl`](https://github.com/elm-lang/elm-repl) lets you play with simple Elm expressions.
+[`elm-repl`](https://github.com/elm-lang/elm-repl) 让你做表达式求值（译者注： Read, Evaluate, Print, Loop）。
 
 ```bash
 $ elm-repl
@@ -68,14 +69,18 @@ $ elm-repl
 $
 ```
 
-We will be using `elm-repl` in the upcoming &ldquo;Core Language&rdquo; section, and you can read more about how it works [here](https://github.com/elm-lang/elm-repl/blob/master/README.md).
+我们将在 &ldquo;语言核心概念&rdquo; 章节使用 `elm-repl`，更多细节请阅读[这里](https://github.com/elm-lang/elm-repl/blob/master/README.md)。
 
-> **Note:** `elm-repl` works by compiling code to JavaScript, so make sure you have [Node.js](http://nodejs.org/) installed. We use that to evaluate code.
+
+> **注:** `elm-repl` 将代码编译成 JavaScript 后执行, 确保你安装了 [Node.js](http://nodejs.org/) 。
 
 
 ### elm-reactor
 
-[`elm-reactor`](https://github.com/elm-lang/elm-reactor) helps you build Elm projects without messing with the command-line too much. You just run it at the root of your project, like this:
+[`elm-reactor`](https://github.com/elm-lang/elm-reactor) helps you build Elm projects without 
+messing with the command-line too much. You just run it at the root of your project, like this:
+
+[`elm-reactor`](https://github.com/elm-lang/elm-reactor) 帮你一句命令搞定整个工程。你只需要在项目的根目录下指定如下命令：
 
 ```bash
 git clone https://github.com/evancz/elm-architecture-tutorial.git
@@ -83,37 +88,36 @@ cd elm-architecture-tutorial
 elm-reactor
 ```
 
-This starts a server at [`http://localhost:8000`](http://localhost:8000). You can navigate to any Elm file and see what it looks like. Try to check out `examples/01-button.elm`.
+这句命令在 [`http://localhost:8000`](http://localhost:8000) 启动了一个服务。你可以浏览任何一个 Elm 文件，例如 `examples/01-button.elm`。
 
-**Notable flags:**
+**值得注意的 flags:**
 
-- `--port` lets you pick something besides port 8000. So you can say
-  `elm-reactor --port=8123` to get things to run at `http://localhost:8123`.
-- `--address` lets you replace `localhost` with some other address. For
-  example, you may want to use `elm-reactor --address=0.0.0.0` if you want to
-  try out an Elm program on a mobile device through your local network.
+- `--port` 指定端口号. 比如
+  `elm-reactor --port=8123` 指定服务运行在 `http://localhost:8123`。
+- `--address` 可以替换默认的 `localhost` 成其他的地址. 比如使用 `elm-reactor --address=0.0.0.0` 让你的服务监听局域网所有的请求。
 
 
 ## elm-make
 
-[`elm-make`](https://github.com/elm-lang/elm-make) builds Elm projects. It can compile Elm code to HTML or JavaScript. It is the most general way to compile Elm code, so if your project becomes too advanced for `elm-reactor`, you will want to start using `elm-make` directly.
+[`elm-make`](https://github.com/elm-lang/elm-make) 用来编译 Elm  工程成 HTML 或者 JavaScript。这是最常用的编译 Elm 代码的方式，如果你的代码无需用 `elm-reactor` 调试，可以直接运行 `elm-make` 来构建。
 
-Say you want to compile `Main.elm` to an HTML file named `main.html`. You would run this command:
 
+假设你要编译 `Main.elm` 成 HTML 文件 `main.html`，你需要执行：
 ```bash
 elm-make Main.elm --output=main.html
 ```
 
-**Notable flags:**
+**值得注意的 flags:**
 
-- `--warn` prints warnings to improve code quality
+- `--warn` 打印警告语句以提高代码质量
 
 
 ### elm-package
 
-[`elm-package`](https://github.com/elm-lang/elm-package) downloads and publishes packages from our [package catalog](http://package.elm-lang.org/). As community members solve problems [in a nice way](http://package.elm-lang.org/help/design-guidelines), they share their code in the package catalog for anyone to use!
+[`elm-package`](https://github.com/elm-lang/elm-package) 用来下载和发布到[package catalog](http://package.elm-lang.org/)。作为社区成员解决问题[更好的办法](http://package.elm-lang.org/help/design-guidelines)，代码分享出来让大家使用才是王道！
 
-Say you want to use [`elm-lang/http`][http] and [`NoRedInk/elm-decode-pipeline`][pipe] to make HTTP requests to a server and turn the resulting JSON into Elm values. You would say:
+
+假设你需要使用 [`elm-lang/http`][http] 和 [`NoRedInk/elm-decode-pipeline`][pipe] 来做网络请求，并且将返回的结果转换成 JSON，你可以这样做：
 
 [http]: http://package.elm-lang.org/packages/elm-lang/http/latest
 [pipe]: http://package.elm-lang.org/packages/NoRedInk/elm-decode-pipeline/latest
@@ -123,12 +127,12 @@ elm-package install elm-lang/http
 elm-package install NoRedInk/elm-decode-pipeline
 ```
 
-This will add the dependencies to your `elm-package.json` file that describes your project. (Or create it if you do not have one yet!) More information about all this [here](https://github.com/elm-lang/elm-package)!
+这句命令把依赖安装到 `elm-package.json` 文件。（`elm-package.json` 文件描述项目，如果没有的话，可以手动创建）,更多姿势请移步 [这里](https://github.com/elm-lang/elm-package)!
 
 
-**Notable commands:**
+**值得关注的命令:**
 
-- `install`: install the dependencies in `elm-package.json`
-- `publish`: publish your library to the Elm Package Catalog
-- `bump`: bump version numbers based on API changes
-- `diff`: get the difference between two APIs
+- `install`: 安装依赖到项目，并修改描述文件 `elm-package.json`
+- `publish`: 发布你的 Elm Package
+- `bump`: 根据 API 改变来解决版本号之间的冲突
+- `diff`: 查看两个 API 之间的区别
