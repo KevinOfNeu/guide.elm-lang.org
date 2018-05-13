@@ -77,9 +77,6 @@ $
 
 ### elm-reactor
 
-[`elm-reactor`](https://github.com/elm-lang/elm-reactor) helps you build Elm projects without 
-messing with the command-line too much. You just run it at the root of your project, like this:
-
 [`elm-reactor`](https://github.com/elm-lang/elm-reactor) 帮你一句命令搞定整个工程。你只需要在项目的根目录下指定如下命令：
 
 ```bash
