@@ -1,11 +1,10 @@
-
-# Core Language
+# Elm 语言核心概念
 
 This section will walk you through Elm's simple core language.
 
-This works best when you follow along, so after [installing](install.md), start up `elm-repl` in the terminal. (Or use the [online REPL](http://elmrepl.cuberoot.in/).) Either way, you should see something like this:
+This works best when you follow along, so after [installing](install.md), start up `elm-repl` in the terminal. \(Or use the [online REPL](http://elmrepl.cuberoot.in/).\) Either way, you should see something like this:
 
-```elm
+```text
 ---- elm repl 0.18.0 -----------------------------------------------------------
  :help for help, :exit to exit, more at <https://github.com/elm-lang/elm-repl>
 --------------------------------------------------------------------------------
@@ -14,14 +13,13 @@ This works best when you follow along, so after [installing](install.md), start 
 
 The REPL prints out the type of every result, but **we will leave the type annotations off in this tutorial** for the sake of introducing concepts gradually.
 
-We will cover [values](#values), [functions](#functions), [lists](#lists), [tuples](#tuples), and [records](#records). These building blocks all correspond pretty closely with structures in languages like JavaScript, Python, and Java.
-
+We will cover [values](core_language.md#values), [functions](core_language.md#functions), [lists](core_language.md#lists), [tuples](core_language.md#tuples), and [records](core_language.md#records). These building blocks all correspond pretty closely with structures in languages like JavaScript, Python, and Java.
 
 ## Values
 
 Let's get started with some strings:
 
-```elm
+```text
 > "hello"
 "hello"
 
@@ -36,7 +34,7 @@ Elm uses the `(++)` operator to put strings together. Notice that both strings a
 
 Math looks normal too:
 
-```elm
+```text
 > 2 + 3 * 4
 14
 
@@ -46,7 +44,7 @@ Math looks normal too:
 
 Unlike JavaScript, Elm makes a distinction between integers and floating point numbers. Just like Python 3, there is both floating point division `(/)` and integer division `(//)`.
 
-```elm
+```text
 > 9 / 2
 4.5
 
@@ -58,7 +56,7 @@ Unlike JavaScript, Elm makes a distinction between integers and floating point n
 
 Let's start by writing a function `isNegative` that takes in some number and checks if it is less than zero. The result will be `True` or `False`.
 
-```elm
+```text
 > isNegative n = n < 0
 <function>
 
@@ -72,16 +70,13 @@ True
 False
 ```
 
-Notice that function application looks different than in languages like JavaScript and Python and Java. Instead of wrapping all arguments in parentheses and separating them with commas, we use spaces to apply the function. So `(add(3,4))` becomes `(add 3 4)` which ends up avoiding a bunch of parens and commas as things get bigger. Ultimately, this looks much cleaner once you get used to it! [The elm-html package][elm-html] is a good example of how this keeps things feeling light.
-
-[elm-html]: http://elm-lang.org/blog/blazing-fast-html
-
+Notice that function application looks different than in languages like JavaScript and Python and Java. Instead of wrapping all arguments in parentheses and separating them with commas, we use spaces to apply the function. So `(add(3,4))` becomes `(add 3 4)` which ends up avoiding a bunch of parens and commas as things get bigger. Ultimately, this looks much cleaner once you get used to it! [The elm-html package](http://elm-lang.org/blog/blazing-fast-html) is a good example of how this keeps things feeling light.
 
 ## If Expressions
 
 When you want to have conditional behavior in Elm, you use an if-expression.
 
-```elm
+```text
 > if True then "hello" else "world"
 "hello"
 
@@ -91,11 +86,11 @@ When you want to have conditional behavior in Elm, you use an if-expression.
 
 The keywords `if` `then` `else` are used to separate the conditional and the two branches so we do not need any parentheses or curly braces.
 
-Elm does not have a notion of &ldquo;truthiness&rdquo; so numbers and strings and lists cannot be used as boolean values. If we try it out, Elm will tell us that we need to work with a real boolean value.
+Elm does not have a notion of “truthiness” so numbers and strings and lists cannot be used as boolean values. If we try it out, Elm will tell us that we need to work with a real boolean value.
 
 Now let's make a function that tells us if a number is over 9000.
 
-```elm
+```text
 > over9000 powerLevel = \
 |   if powerLevel > 9000 then "It's over 9000!!!" else "meh"
 <function>
@@ -111,16 +106,13 @@ Using a backslash in the REPL lets us split things on to multiple lines. We use 
 
 > **Note:** Make sure that you add a whitespace before the second line of the function. Elm has a "syntactically significant whitespace" meaning that indentation is a part of its syntax.
 
-
 ## Lists
 
 Lists are one of the most common data structures in Elm. They hold a sequence of related things, similar to arrays in JavaScript.
 
-Lists can hold many values. Those values must all have the same type. Here are a few examples that use functions from [the `List` library][list]:
+Lists can hold many values. Those values must all have the same type. Here are a few examples that use functions from [the `List` library](http://package.elm-lang.org/packages/elm-lang/core/latest/List):
 
-[list]: http://package.elm-lang.org/packages/elm-lang/core/latest/List
-
-```elm
+```text
 > names = [ "Alice", "Bob", "Chuck" ]
 ["Alice","Bob","Chuck"]
 
@@ -148,12 +140,11 @@ False
 
 Again, all elements of the list must have the same type.
 
-
 ## Tuples
 
 Tuples are another useful data structure. A tuple can hold a fixed number of values, and each value can have any type. A common use is if you need to return more than one value from a function. The following function gets a name and gives a message for the user:
 
-```elm
+```text
 > import String
 
 > goodName name = \
@@ -168,13 +159,11 @@ Tuples are another useful data structure. A tuple can hold a fixed number of val
 
 This can be quite handy, but when things start becoming more complicated, it is often best to use records instead of tuples.
 
-
 ## Records
 
 A record is a set of key-value pairs, similar to objects in JavaScript or Python. You will find that they are extremely common and useful in Elm! Let's see some basic examples.
 
-
-```elm
+```text
 > point = { x = 3, y = 4 }
 { x = 3, y = 4 }
 
@@ -188,9 +177,9 @@ A record is a set of key-value pairs, similar to objects in JavaScript or Python
 "Gates"
 ```
 
-So we can create records using curly braces and access fields using a dot. Elm also has a version of record access that works like a function. By starting the variable with a dot, you are saying *please access the field with the following name*. This means that `.name` is a function that gets the `name` field of the record.
+So we can create records using curly braces and access fields using a dot. Elm also has a version of record access that works like a function. By starting the variable with a dot, you are saying _please access the field with the following name_. This means that `.name` is a function that gets the `name` field of the record.
 
-```elm
+```text
 > .name bill
 "Gates"
 
@@ -200,7 +189,7 @@ So we can create records using curly braces and access fields using a dot. Elm a
 
 When it comes to making functions with records, you can do some pattern matching to make things a bit lighter.
 
-```elm
+```text
 > under70 {age} = age < 70
 <function>
 
@@ -215,7 +204,7 @@ So we can pass any record in as long as it has an `age` field that holds a numbe
 
 It is often useful to update the values in a record.
 
-```elm
+```text
 > { bill | name = "Nye" }
 { age = 57, name = "Nye" }
 
@@ -223,19 +212,17 @@ It is often useful to update the values in a record.
 { age = 22, name = "Gates" }
 ```
 
-It is important to notice that we do not make *destructive* updates. When we update some fields of `bill` we actually create a new record rather than overwriting the existing one. Elm makes this efficient by sharing as much content as possible. If you update one of ten fields, the new record will share the nine unchanged values.
-
+It is important to notice that we do not make _destructive_ updates. When we update some fields of `bill` we actually create a new record rather than overwriting the existing one. Elm makes this efficient by sharing as much content as possible. If you update one of ten fields, the new record will share the nine unchanged values.
 
 ### Comparing Records and Objects
 
-Records in Elm are *similar* to objects in JavaScript, but there are some crucial differences. The major differences are that with records:
+Records in Elm are _similar_ to objects in JavaScript, but there are some crucial differences. The major differences are that with records:
 
-- You cannot ask for a field that does not exist.
-- No field will ever be undefined or null.
-- You cannot create recursive records with a `this` or `self` keyword.
+* You cannot ask for a field that does not exist.
+* No field will ever be undefined or null.
+* You cannot create recursive records with a `this` or `self` keyword.
 
 Elm encourages a strict separation of data and logic, and the ability to say `this` is primarily used to break this separation. This is a systemic problem in Object Oriented languages that Elm is purposely avoiding.
 
-Records also support [structural typing][st] which means records in Elm can be used in any situation as long as the necessary fields exist. This gives us flexibility without compromising reliability.
+Records also support [structural typing](https://en.wikipedia.org/wiki/Structural_type_system) which means records in Elm can be used in any situation as long as the necessary fields exist. This gives us flexibility without compromising reliability.
 
- [st]: https://en.wikipedia.org/wiki/Structural_type_system "Structural Types"

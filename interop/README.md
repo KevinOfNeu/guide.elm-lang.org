@@ -1,4 +1,4 @@
-# Interop
+# 互操作性
 
 Interop is extraordinarily important if you want your language to succeed!
 
@@ -6,15 +6,15 @@ This is just a historical fact. A huge part of why C++ was so successful was tha
 
 This section focuses on the major kinds of interop that you need when working in browsers.
 
-  1. How to communicate with external services using JSON.
-  2. How to embed Elm programs in existing HTML or React apps.
-  3. How to communicate with existing JavaScript code.
+1. How to communicate with external services using JSON.
+2. How to embed Elm programs in existing HTML or React apps.
+3. How to communicate with existing JavaScript code.
 
-Each of these types of interop are guided by the self-imposed constraints that (1) there must be a clear way to introduce Elm gradually into diverse environments and (2) Elm should not have to sacrifice its core design principles. In other words, **Elm should be great *and* it should be possible to use Elm at work.**
-
+Each of these types of interop are guided by the self-imposed constraints that \(1\) there must be a clear way to introduce Elm gradually into diverse environments and \(2\) Elm should not have to sacrifice its core design principles. In other words, **Elm should be great** _**and**_ **it should be possible to use Elm at work.**
 
 ## Advice on Introducing Elm
 
 The correct path is to first use Elm in a small experiment. If the experiment goes bad, stop it! If it goes great, expand the experiment a bit more. Then just repeat this process until you are using Elm or not! History seems to suggest that there is no realistic way to translate an existing project into a new language all at once. You have to evolve gradually!
 
 Every company I know of that introduced Elm into an existing codebase did it gradually. You need to make sure it is worth it. You probably need to do some pairing or mentorship to get your teammates comfortable. You may even want to use React as a stepping stone if you are on something before that. Basically, anything you can do to minimize risk and make the process feel gradual will improve your odds. Now none of this is as fun as just switching, but it has the great benefit of actually working out in practice.
+

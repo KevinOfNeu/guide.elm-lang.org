@@ -1,14 +1,12 @@
-# Forms
+# 表单
 
----
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](http://elm-lang.org/examples/form).
----
+## [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](http://elm-lang.org/examples/form).
 
-Here we will make a rudimentary form. It has a field for your name, a field for your password, and a field to verify that password. We will also do some very simple validation (do the two passwords match?) just because it is simple to add.
+Here we will make a rudimentary form. It has a field for your name, a field for your password, and a field to verify that password. We will also do some very simple validation \(do the two passwords match?\) just because it is simple to add.
 
 The code is a bit longer in this case, but I still think it is valuable to look through it before you get into the description of what is going on.
 
-```elm
+```text
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput)
@@ -80,7 +78,7 @@ This is pretty much exactly how our [text field example](text_fields.md) looked,
 
 As always, you start out by guessing at the `Model`. We know there are going to be three text fields, so let's just go with that:
 
-```elm
+```text
 type alias Model =
   { name : String
   , password : String
@@ -90,7 +88,7 @@ type alias Model =
 
 Great, seems reasonable. We expect that each of these fields can be changed separately, so our messages should account for each of those scenarios.
 
-```elm
+```text
 type Msg
     = Name String
     | Password String
@@ -99,7 +97,7 @@ type Msg
 
 This means our `update` is pretty mechanical. Just update the relevant field:
 
-```elm
+```text
 update : Msg -> Model -> Model
 update msg model =
   case msg of
@@ -115,7 +113,7 @@ update msg model =
 
 We get a little bit fancier than normal in our `view` though.
 
-```elm
+```text
 view : Model -> Html Msg
 view model =
   div []
@@ -126,11 +124,11 @@ view model =
     ]
 ```
 
-It starts out normal: We create a `<div>` and put a couple `<input>` nodes in it. Each one has an `onInput` attribute that will tag any changes appropriately for our `update` function. (This is all building off of the text field example in the previous section.)
+It starts out normal: We create a `<div>` and put a couple `<input>` nodes in it. Each one has an `onInput` attribute that will tag any changes appropriately for our `update` function. \(This is all building off of the text field example in the previous section.\)
 
 But for the last child we do not directly use an HTML function. Instead we call the `viewValidation` function, passing in the current model.
 
-```elm
+```text
 viewValidation : Model -> Html msg
 viewValidation model =
   let
@@ -149,11 +147,12 @@ This starts to show the benefits of having our HTML library be normal Elm code. 
 
 On these same lines, you may notice that the `<input>` nodes all are created with pretty similar code. Say we made each input fancier: there is an outer `<div>` that holds a `<span>` and an `<input>` with certain classes. It would make total sense to break that pattern out into a `viewInput` function so you never have to repeat yourself. This also means you change it in one place and everyone gets the updated HTML.
 
-> **Exercises:** One cool thing about breaking `viewValidation` out is that it is pretty easy to augment. If you are messing with the code as you read through this (as you should be!) you should try to:
+> **Exercises:** One cool thing about breaking `viewValidation` out is that it is pretty easy to augment. If you are messing with the code as you read through this \(as you should be!\) you should try to:
 >
->  - Check that the password is longer than 8 characters.
->  - Make sure the password contains upper case, lower case, and numeric characters.
->  - Add an additional field for `age` and check that it is a number.
->  - Add a "Submit" button. Only show errors *after* it has been pressed.
+> * Check that the password is longer than 8 characters.
+> * Make sure the password contains upper case, lower case, and numeric characters.
+> * Add an additional field for `age` and check that it is a number.
+> * Add a "Submit" button. Only show errors _after_ it has been pressed.
 >
 > Be sure to use the helpers in [the `String` library](http://package.elm-lang.org/packages/elm-lang/core/latest/String) if you try any of these! Also, we need to learn more before we start talking to servers, so before you try that here, keep reading until HTTP is introduced. It will be significantly easier with proper guidance!
+
